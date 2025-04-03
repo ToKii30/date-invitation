@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tangled-Themed Invitation</title>
+    <style>
+        body {
+            background-color: #3e1d6a;
+            color: #ffeb99;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .invitation {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px rgba(255, 223, 99, 0.8);
+            display: inline-block;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ffdd55;
+        }
+        .lanterns {
+            font-size: 3em;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            background: #ffdd55;
+            color: #3e1d6a;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 223, 99, 0.8);
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #ffd700;
+        }
+        .lantern {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: radial-gradient(circle, #ffcc66 30%, #ff9900 100%);
+            border-radius: 10px;
+            opacity: 0;
+            animation: floatLantern 5s linear infinite;
+        }
+        @keyframes floatLantern {
+            from {
+                transform: translateY(100vh) scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation">
+        <h1>✨ I See the Light... ✨</h1>
+        <p>And it’s shining on an amazing afternoon with you! 💛</p>
+        <div class="lanterns">🏮🏮🏮</div>
+        <p>You are officially invited to a magical date noon with me!</p>
+        <p>🌟 Where: The Kingdom of Corona, Naro Cafe or Meshroom Cafe</p>
+        <p>📅 When: The day our adventure begins on April 7, 2025 or your preferred date</p>
+        <p>💖 Special Activities: Laughs, watch movies, and maybe a floating lantern sighting</p>
+        <button class="btn" onclick="releaseLanterns()">Yes! 💛</button>
+        <button class="btn" onclick="insistNo()">No... but why? 😢</button>
+        <p id="message"></p>
+    </div>
+    <script>
+        function releaseLanterns() {
+            for (let i = 0; i < 20; i++) {
+                let lantern = document.createElement("div");
+                lantern.classList.add("lantern");
+                document.body.appendChild(lantern);
+                lantern.style.left = Math.random() * 100 + "vw";
+                lantern.style.animationDuration = (Math.random() * 3 + 3) + "s";
+                
+                setTimeout(() => {
+                    lantern.remove();
+                }, 20000);
+            }
+        }
+        
+        function insistNo() {
+            let messages = [
+                "Are you sure? I highly recommend this date! 😏",
+                "Mother Gothel says staying home is a bad idea... 😜",
+                "I promise, no frying pans involved! 🥄",
+                "Even Pascal thinks you should say yes! 🦎",
+                "Come on, it’ll be the Best. Day. Ever! ☀️"
+            ];
+            document.getElementById("message").innerText = messages[Math.floor(Math.random() * messages.length)];
+        }
+    </script>
+</body>
+</html>
